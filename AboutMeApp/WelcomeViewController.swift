@@ -7,15 +7,19 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
-
+final class WelcomeViewController: UIViewController {
+    @IBOutlet var welcomeUserNameLabel: UILabel!
+    
+    var welcomeUserName: String!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        welcomeUserNameLabel.text = "Welcome, " + welcomeUserName + "!"
     }
     
-
+    
     /*
     // MARK: - Navigation
 
@@ -25,5 +29,5 @@ class WelcomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+ 
 }
