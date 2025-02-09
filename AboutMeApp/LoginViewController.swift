@@ -16,26 +16,24 @@ final class LoginViewController: UIViewController {
     private let user = "1"
     private let password = "1"
     
-//    MARK: - View Life Cycles
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+//    MARK: - Navigation
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
-//    MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let welcomeVC = segue.destination as? WelcomeViewController
         welcomeVC?.welcomeUserName = userTextField.text
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
-    }
-
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard userTextField.text == user, passwordTextField.text == password else {
-            incorrectLoginAndPasswordAlert(withTitle: "Incorrect login or password", andMessage: "Please, enter correct login and password.")
+            incorrectLoginAndPasswordAlert(
+                withTitle: "Incorrect login or password",
+                andMessage: "Please, enter correct login and password."
+            )
+            
             return false
         }
         return true
@@ -53,6 +51,7 @@ final class LoginViewController: UIViewController {
             andMessage: "Your name: \(user)"
         )
     }
+    
     @IBAction func fogotPasswordButtonDidTaped() {
         nameAndPasswordHelpAlert(
             withTitle: "Ooops",
@@ -62,8 +61,11 @@ final class LoginViewController: UIViewController {
 }
 
 //  MARK: - Alerts
-extension LoginViewController {
-    func incorrectLoginAndPasswordAlert(withTitle title: String, andMessage message: String) {
+private extension LoginViewController {
+    func incorrectLoginAndPasswordAlert(
+        withTitle title: String,
+        andMessage message: String
+    ) {
         let alert = UIAlertController(
             title: title,
             message: message,
@@ -75,7 +77,11 @@ extension LoginViewController {
         alert.addAction(okAction)
         present(alert, animated: true)
     }
-    func nameAndPasswordHelpAlert(withTitle title: String, andMessage message: String) {
+    
+    func nameAndPasswordHelpAlert(
+        withTitle title: String,
+        andMessage message: String
+    ) {
         let alert = UIAlertController(
             title: title,
             message: message,
