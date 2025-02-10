@@ -8,15 +8,21 @@
 import UIKit
 
 final class LoginViewController: UIViewController {
-//    MARK: - IB Outlets
+// MARK: - IB Outlets
     @IBOutlet private var userTextField: UITextField!
     @IBOutlet private var passwordTextField: UITextField!
     
-//    MARK: - Private Properties
-    private let user = "User"
-    private let password = "Password"
+// MARK: - Private Properties
+    private let user = User.userCard
     
-//    MARK: - Navigation
+// MARK: - View Life Cycles
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        userTextField.text = user.login
+        passwordTextField.text = user.password
+    }
+    
+// MARK: - Navigation
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
         view.endEditing(true)
@@ -28,7 +34,7 @@ final class LoginViewController: UIViewController {
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        guard userTextField.text == user, passwordTextField.text == password else {
+        guard userTextField.text == user.login, passwordTextField.text == user.password else {
             showAlert(withTitle: "Incorrect login or password",
                       andMessage: "Please, enter correct login and password.") {
                 self.passwordTextField.text = ""
@@ -39,22 +45,22 @@ final class LoginViewController: UIViewController {
         return true
     }
     
-//    MARK: - IB Actions
+// MARK: - IB Actions
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        userTextField.text = ""
-        passwordTextField.text = ""
+        userTextField.text = "\(user.login)"
+        passwordTextField.text = "\(user.password)"
     }
     
 
     @IBAction func getLoginPassword(_ sender: UIButton) {
         showAlert(
             withTitle: "Oops",
-            andMessage: "It is \(sender.tag == 0 ? user : password)"
+            andMessage: "It is \(sender.tag == 0 ? user.login : user.password)"
         )
     }
 }
 
-//  MARK: - Alerts
+// MARK: - Alerts
 private extension LoginViewController {
     func showAlert(
         withTitle title: String,
