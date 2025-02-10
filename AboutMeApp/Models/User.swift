@@ -19,7 +19,7 @@ struct User {
             age: 38,
             company: "InfiniteArtSolutions",
             department: "3D",
-            pisition: "Freelance"
+            position: "Freelance"
         )
     )
 }
@@ -30,5 +30,5 @@ struct Person {
     let age: Int
     let company: String
     let department: String
-    let pisition: String
+    let position: String
 }
