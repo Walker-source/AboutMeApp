@@ -13,8 +13,8 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var passwordTextField: UITextField!
     
 //    MARK: - Private Properties
-    private let user = "1"
-    private let password = "1"
+    private let user = "User"
+    private let password = "Password"
     
 //    MARK: - Navigation
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -29,10 +29,10 @@ final class LoginViewController: UIViewController {
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
         guard userTextField.text == user, passwordTextField.text == password else {
-            incorrectLoginAndPasswordAlert(
-                withTitle: "Incorrect login or password",
-                andMessage: "Please, enter correct login and password."
-            )
+            showAlert(withTitle: "Incorrect login or password",
+                      andMessage: "Please, enter correct login and password.") {
+                self.passwordTextField.text = ""
+            }
             
             return false
         }
@@ -45,49 +45,30 @@ final class LoginViewController: UIViewController {
         passwordTextField.text = ""
     }
     
-    @IBAction func forgotUserNameButtonDidTaped() {
-        nameAndPasswordHelpAlert(
-            withTitle: "Ooops",
-            andMessage: "Your name: \(user)"
-        )
-    }
-    
-    @IBAction func fogotPasswordButtonDidTaped() {
-        nameAndPasswordHelpAlert(
-            withTitle: "Ooops",
-            andMessage: "Your password: \(password)"
+
+    @IBAction func getLoginPassword(_ sender: UIButton) {
+        showAlert(
+            withTitle: "Oops",
+            andMessage: "It is \(sender.tag == 0 ? user : password)"
         )
     }
 }
 
 //  MARK: - Alerts
 private extension LoginViewController {
-    func incorrectLoginAndPasswordAlert(
+    func showAlert(
         withTitle title: String,
-        andMessage message: String
+        andMessage message: String,
+        closure: (() -> Void)? = nil
     ) {
         let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert
         )
-        let okAction = UIAlertAction(title: "OK", style: .cancel) {_ in
-            self.passwordTextField.text = ""
+        let okAction = UIAlertAction(title: "OK", style: .default) {_ in
+            closure?()
         }
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-    
-    func nameAndPasswordHelpAlert(
-        withTitle title: String,
-        andMessage message: String
-    ) {
-        let alert = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        let okAction = UIAlertAction(title: "OK", style: .cancel)
         alert.addAction(okAction)
         present(alert, animated: true)
     }
