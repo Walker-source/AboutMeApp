@@ -8,13 +8,13 @@
 import UIKit
 
 final class WelcomeViewController: UIViewController {
-//    MARK: - IB Outlets
+// MARK: - IB Outlets
     @IBOutlet var welcomeUserNameLabel: UILabel!
 
-//    MARK: - Public Properties
+// MARK: - Public Properties
     var welcomeUserName: String!
     
-//    MARK: - View Life Cycles
+// MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
