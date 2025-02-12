@@ -62,11 +62,11 @@ final class LoginViewController: UIViewController {
     }
     
 // MARK: - IB Actions
-//    Удалить при здиче домашки и сохранить для проекта
-    
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        userTextField.text = "\(user.login)"
-        passwordTextField.text = "\(user.password)"
+//  потом верну как должно быть
+        
+//        userTextField.text = "\(user.login)"
+//        passwordTextField.text = "\(user.password)"
     }
     
     @IBAction func getLoginPassword(_ sender: UIButton) {
