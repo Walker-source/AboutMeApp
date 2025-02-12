@@ -69,7 +69,6 @@ final class LoginViewController: UIViewController {
         passwordTextField.text = "\(user.password)"
     }
     
-
     @IBAction func getLoginPassword(_ sender: UIButton) {
         showAlert(
             withTitle: "Oops",

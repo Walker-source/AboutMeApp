@@ -19,7 +19,6 @@ final class PersonViewController: UIViewController {
     
     @IBOutlet private var userPhotoView: UIImageView!
     
-    
 // MARK: - Public  Properties
     var name: String!
     var surname: String!
@@ -42,7 +41,6 @@ final class PersonViewController: UIViewController {
         positionLabel.text = position
         
         userPhotoView.layer.cornerRadius = userPhotoView.frame.width / 2
-        
     }
     
  // MARK: - Navigation
