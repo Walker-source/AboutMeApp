@@ -29,8 +29,24 @@ final class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let welcomeVC = segue.destination as? WelcomeViewController
-        welcomeVC?.welcomeUserName = userTextField.text
+        let tabBarVC = segue.destination as? UITabBarController
+        
+        tabBarVC?.viewControllers?.forEach { viewController in
+            switch viewController {
+            case let welcomeVC as WelcomeViewController:
+                welcomeVC.welcomeUserName = user.person.name
+            case let personVC as PersonViewController:
+                personVC.name = user.person.name
+                personVC.surname = user.person.surname
+                personVC.age = user.person.age
+                personVC.company = user.person.company
+                personVC.department = user.person.department
+                personVC.position = user.person.position
+                personVC.personBio = user.person.biography
+            default:
+                break
+            }
+        }
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -46,6 +62,8 @@ final class LoginViewController: UIViewController {
     }
     
 // MARK: - IB Actions
+//    Удалить при здиче домашки и сохранить для проекта
+    
     @IBAction func unwind(for segue: UIStoryboardSegue) {
         userTextField.text = "\(user.login)"
         passwordTextField.text = "\(user.password)"
