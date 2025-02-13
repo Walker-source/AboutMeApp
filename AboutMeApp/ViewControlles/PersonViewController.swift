@@ -41,6 +41,8 @@ final class PersonViewController: UIViewController {
             named: user.person.company.biography.userPhoto.image
         )
         userPhotoView.image = userImage
+        userPhotoView.layer.borderWidth = 3
+        userPhotoView.layer.borderColor = CGColor(gray: 0.3, alpha: 1.0)
         userPhotoView.layer.cornerRadius = userPhotoView.frame.width / 2
     }
     
