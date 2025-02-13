@@ -13,7 +13,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var passwordTextField: UITextField!
     
 // MARK: - Private Properties
-    private let user = User.userCard
+    private let user = User.user
     
 // MARK: - View Life Cycles
     override func viewDidLoad() {
@@ -34,15 +34,9 @@ final class LoginViewController: UIViewController {
         tabBarVC?.viewControllers?.forEach { viewController in
             switch viewController {
             case let welcomeVC as WelcomeViewController:
-                welcomeVC.welcomeUserName = user.person.name
+                welcomeVC.user = user
             case let personVC as PersonViewController:
-                personVC.name = user.person.name
-                personVC.surname = user.person.surname
-                personVC.age = user.person.age
-                personVC.company = user.person.company
-                personVC.department = user.person.department
-                personVC.position = user.person.position
-                personVC.personBio = user.person.biography
+                personVC.user = user
             default:
                 break
             }
