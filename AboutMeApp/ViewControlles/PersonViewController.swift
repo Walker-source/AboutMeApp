@@ -20,32 +20,33 @@ final class PersonViewController: UIViewController {
     @IBOutlet private var userPhotoView: UIImageView!
     
 // MARK: - Public  Properties
-    var name: String!
-    var surname: String!
-    var age: Int!
-    var company: String!
-    var department: String!
-    var position: String!
-    var personBio: String!
+    var user: User!
+    
+// MARK: - Private Properties
+    private var userImage: UIImage!
     
 // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        personNameLabel.text = name + " " + surname
-        nameLabel.text = name
-        surnameLabel.text = surname
-        ageLabel.text = String(age)
-        companyLabel.text = company
-        departmentLabel.text = department
-        positionLabel.text = position
+        personNameLabel.text = user.person.fullName
+        nameLabel.text = user.person.name
+        surnameLabel.text = user.person.surname
+        ageLabel.text = String(user.person.age)
+        companyLabel.text = user.person.company.company
+        departmentLabel.text = user.person.company.department
+        positionLabel.text = user.person.company.position
         
+        userImage = UIImage(
+            named: user.person.company.biography.userPhoto.image
+        )
+        userPhotoView.image = userImage
         userPhotoView.layer.cornerRadius = userPhotoView.frame.width / 2
     }
     
  // MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let bioViewCntroller = segue.destination as? BioViewController
-        bioViewCntroller?.biography = personBio
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let bioViewCntroller = segue.destination as? BioViewController
+//        bioViewCntroller?.biography = personBio
+//    }
 }
