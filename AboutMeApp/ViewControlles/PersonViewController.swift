@@ -9,7 +9,6 @@ import UIKit
 
 final class PersonViewController: UIViewController {
 // MARK: - IB Outlets
-    @IBOutlet private var personNameLabel: UILabel!
     @IBOutlet private var nameLabel: UILabel!
     @IBOutlet private var surnameLabel: UILabel!
     @IBOutlet private var ageLabel: UILabel!
@@ -29,7 +28,7 @@ final class PersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        personNameLabel.text = user.person.fullName
+        title = user.person.fullName
         nameLabel.text = user.person.name
         surnameLabel.text = user.person.surname
         ageLabel.text = String(user.person.age)
@@ -47,8 +46,8 @@ final class PersonViewController: UIViewController {
     }
     
  // MARK: - Navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let bioViewCntroller = segue.destination as? BioViewController
-//        bioViewCntroller?.biography = personBio
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let bioViewCntroller = segue.destination as? BioViewController
+        bioViewCntroller?.biography = user.person.company.biography.biography
+    }
 }

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D1D82C42D5D1A3700659C66 /* BioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1D82C32D5D1A3700659C66 /* BioViewController.swift */; };
 		5D55BA382D5BE49E004E1EE2 /* PersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D55BA372D5BE49E004E1EE2 /* PersonViewController.swift */; };
+		5D5823E42D621509001CD238 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5823E32D621509001CD238 /* TabBarController.swift */; };
 		5DF942D52D5AA1CF0094F162 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF942CB2D5AA1CF0094F162 /* Assets.xcassets */; };
 		5DF942D72D5AA1CF0094F162 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF942CE2D5AA1CF0094F162 /* LaunchScreen.storyboard */; };
 		5DF942D82D5AA1CF0094F162 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DF942D12D5AA1CF0094F162 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		5D1D82C32D5D1A3700659C66 /* BioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BioViewController.swift; sourceTree = "<group>"; };
 		5D55BA372D5BE49E004E1EE2 /* PersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonViewController.swift; sourceTree = "<group>"; };
+		5D5823E32D621509001CD238 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		5DAEB26F2D57D7CF006BE702 /* AboutMeApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AboutMeApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF942CA2D5AA1CF0094F162 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DF942CB2D5AA1CF0094F162 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				5DF942CF2D5AA1CF0094F162 /* LoginViewController.swift */,
+				5D5823E32D621509001CD238 /* TabBarController.swift */,
 				5DF942D32D5AA1CF0094F162 /* WelcomeViewController.swift */,
 				5D55BA372D5BE49E004E1EE2 /* PersonViewController.swift */,
 				5D1D82C32D5D1A3700659C66 /* BioViewController.swift */,
@@ -186,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D1D82C42D5D1A3700659C66 /* BioViewController.swift in Sources */,
+				5D5823E42D621509001CD238 /* TabBarController.swift in Sources */,
 				5DF942D92D5AA1CF0094F162 /* AppDelegate.swift in Sources */,
 				5D55BA382D5BE49E004E1EE2 /* PersonViewController.swift in Sources */,
 				5DF942DA2D5AA1CF0094F162 /* LoginViewController.swift in Sources */,

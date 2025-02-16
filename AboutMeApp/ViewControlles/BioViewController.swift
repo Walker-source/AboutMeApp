@@ -18,8 +18,8 @@ final class BioViewController: UIViewController {
         biographyLabel.text = biography
     }
     
-    @IBAction func backButtonAction(_ sender: UIBarButtonItem) {
-        dismiss(animated: true)
-    }
+//    @IBAction func backButtonAction(_ sender: UIBarButtonItem) {
+//        dismiss(animated: true)
+//    }
     
 }

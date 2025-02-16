@@ -13,7 +13,7 @@ final class LoginViewController: UIViewController {
     @IBOutlet private var passwordTextField: UITextField!
     
 // MARK: - Private Properties
-    private let user = User.user
+    private let user: User = .user
     
 // MARK: - View Life Cycles
     override func viewDidLoad() {
@@ -29,18 +29,8 @@ final class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let tabBarVC = segue.destination as? UITabBarController
-        
-        tabBarVC?.viewControllers?.forEach { viewController in
-            switch viewController {
-            case let welcomeVC as WelcomeViewController:
-                welcomeVC.user = user
-            case let personVC as PersonViewController:
-                personVC.user = user
-            default:
-                break
-            }
-        }
+        let tabBarController = segue.destination as? TabBarController
+        tabBarController?.user = user
     }
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
@@ -57,10 +47,9 @@ final class LoginViewController: UIViewController {
     
 // MARK: - IB Actions
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-//  потом верну как должно быть
         
-//        userTextField.text = "\(user.login)"
-//        passwordTextField.text = "\(user.password)"
+        userTextField.text = ""
+        passwordTextField.text = ""
     }
     
     @IBAction func getLoginPassword(_ sender: UIButton) {
