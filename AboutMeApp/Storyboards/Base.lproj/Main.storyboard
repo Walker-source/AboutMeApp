@@ -137,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="673" y="790"/>
         </scene>
-        <!--Person-->
+        <!--Person View Controller-->
         <scene sceneID="hRD-6n-bZJ">
             <objects>
                 <viewController id="5G8-MH-Tmh" customClass="PersonViewController" customModule="AboutMeApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,24 +146,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RiB-lq-qKR">
-                                <rect key="frame" x="112.5" y="148.5" width="150" height="150"/>
+                                <rect key="frame" x="112.5" y="94" width="150" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="7US-WE-vnJ"/>
                                     <constraint firstAttribute="height" constant="150" id="vKd-m6-dZ5"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Person Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JO0-zd-GbH">
-                                <rect key="frame" x="16" y="75" width="343" height="33.5"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="DEF-E8-8eW">
                                 <rect key="frame" x="20" y="263.5" width="41.5" height="20.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="HNp-ID-DGF">
-                                <rect key="frame" x="16" y="338.5" width="300" height="158"/>
+                                <rect key="frame" x="16" y="284" width="300" height="158"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhQ-tv-N47">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -272,37 +266,28 @@
                                     <constraint firstAttribute="width" constant="300" id="U4i-oP-SOO"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aja-0B-sgc">
-                                <rect key="frame" x="310.5" y="20" width="48.5" height="34.5"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Bio"/>
-                                <connections>
-                                    <segue destination="nlo-EN-DwL" kind="presentation" modalPresentationStyle="fullScreen" id="Oug-Vz-A8W"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="x55-a4-2Mb"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="x55-a4-2Mb" firstAttribute="trailing" secondItem="JO0-zd-GbH" secondAttribute="trailing" constant="16" id="6Ll-sx-sC8"/>
-                            <constraint firstItem="JO0-zd-GbH" firstAttribute="top" secondItem="x55-a4-2Mb" secondAttribute="top" constant="75" id="CSh-vR-fuB"/>
+                            <constraint firstItem="RiB-lq-qKR" firstAttribute="top" secondItem="x55-a4-2Mb" secondAttribute="top" constant="50" id="7Pd-N2-GuF"/>
                             <constraint firstItem="RiB-lq-qKR" firstAttribute="centerX" secondItem="DsA-YR-zAS" secondAttribute="centerX" id="E8Y-6b-jGH"/>
-                            <constraint firstItem="x55-a4-2Mb" firstAttribute="trailing" secondItem="aja-0B-sgc" secondAttribute="trailing" constant="16" id="JM6-dm-hDc"/>
                             <constraint firstItem="HNp-ID-DGF" firstAttribute="leading" secondItem="x55-a4-2Mb" secondAttribute="leading" constant="16" id="KAh-ml-v8e"/>
-                            <constraint firstItem="aja-0B-sgc" firstAttribute="top" secondItem="x55-a4-2Mb" secondAttribute="top" constant="20" id="LTF-4L-hDs"/>
-                            <constraint firstItem="JO0-zd-GbH" firstAttribute="leading" secondItem="x55-a4-2Mb" secondAttribute="leading" constant="16" id="ch3-sg-A5R"/>
-                            <constraint firstItem="RiB-lq-qKR" firstAttribute="top" secondItem="JO0-zd-GbH" secondAttribute="bottom" constant="40" id="cs4-Gw-Ttg"/>
                             <constraint firstItem="HNp-ID-DGF" firstAttribute="top" secondItem="RiB-lq-qKR" secondAttribute="bottom" constant="40" id="r1B-fB-gfT"/>
-                            <constraint firstItem="aja-0B-sgc" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="x55-a4-2Mb" secondAttribute="leading" constant="310" id="uYH-II-yNT"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Person" image="person.fill" catalog="system" id="HwH-9u-Wiy"/>
+                    <navigationItem key="navigationItem" id="pRT-Iu-IlT">
+                        <barButtonItem key="rightBarButtonItem" title="Bio" id="gWI-XK-aXi">
+                            <connections>
+                                <segue destination="xPo-CN-NvM" kind="show" id="f55-bv-NJa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ageLabel" destination="91z-Dr-vkr" id="S1l-ia-K1X"/>
                         <outlet property="companyLabel" destination="Tj6-hN-dCa" id="I2o-pw-QQz"/>
                         <outlet property="departmentLabel" destination="DFQ-KD-xrd" id="gQ1-yr-CKY"/>
                         <outlet property="nameLabel" destination="SF8-Lm-2wy" id="D95-86-k4H"/>
-                        <outlet property="personNameLabel" destination="JO0-zd-GbH" id="7bn-ru-77s"/>
                         <outlet property="positionLabel" destination="U9e-Ij-NAC" id="747-qY-bl2"/>
                         <outlet property="surnameLabel" destination="UeL-f9-ZJO" id="1ML-ix-iBS"/>
                         <outlet property="userPhotoView" destination="RiB-lq-qKR" id="F9t-SL-1o0"/>
@@ -310,68 +295,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B4F-V4-OaX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1455" y="789"/>
+            <point key="canvasLocation" x="2392.8000000000002" y="788.45577211394311"/>
         </scene>
         <!--Bio View Controller-->
-        <scene sceneID="5QI-Dn-GmR">
+        <scene sceneID="9eW-GN-gfv">
             <objects>
-                <viewController id="nlo-EN-DwL" customClass="BioViewController" customModule="AboutMeApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="54T-A3-yvZ">
+                <viewController id="xPo-CN-NvM" customClass="BioViewController" customModule="AboutMeApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Azj-o6-xwP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SXT-3F-35N">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwc-iO-aJ2">
                                 <rect key="frame" x="20" y="64" width="335" height="400"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="400" id="Plx-C7-v1L"/>
+                                    <constraint firstAttribute="height" constant="400" id="yvV-4K-1d1"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6aS-iv-eci">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <items>
-                                    <navigationItem title="Biography" id="HXy-Un-3UL">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="chevron.backward.circle.fill" catalog="system" id="IGx-fn-osO">
-                                            <connections>
-                                                <action selector="backButtonAction:" destination="nlo-EN-DwL" id="iwk-kF-C9Y"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="lOz-xz-tFB"/>
+                        <viewLayoutGuide key="safeArea" id="yH2-jc-C6K"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="SXT-3F-35N" firstAttribute="leading" secondItem="lOz-xz-tFB" secondAttribute="leading" constant="20" id="BN4-oe-lSm"/>
-                            <constraint firstItem="6aS-iv-eci" firstAttribute="trailing" secondItem="lOz-xz-tFB" secondAttribute="trailing" id="Gcd-mJ-RPX"/>
-                            <constraint firstItem="lOz-xz-tFB" firstAttribute="trailing" secondItem="SXT-3F-35N" secondAttribute="trailing" constant="20" id="Js9-aU-WKi"/>
-                            <constraint firstItem="6aS-iv-eci" firstAttribute="leading" secondItem="lOz-xz-tFB" secondAttribute="leading" id="elm-HQ-AQg"/>
-                            <constraint firstItem="SXT-3F-35N" firstAttribute="top" secondItem="6aS-iv-eci" secondAttribute="bottom" constant="20" id="mF8-pM-PiC"/>
-                            <constraint firstItem="6aS-iv-eci" firstAttribute="top" secondItem="lOz-xz-tFB" secondAttribute="top" id="tKq-Rk-VHf"/>
+                            <constraint firstItem="fwc-iO-aJ2" firstAttribute="leading" secondItem="yH2-jc-C6K" secondAttribute="leading" constant="20" id="Ire-jj-z59"/>
+                            <constraint firstItem="fwc-iO-aJ2" firstAttribute="top" secondItem="yH2-jc-C6K" secondAttribute="top" constant="20" id="Jnk-Ov-w0Y"/>
+                            <constraint firstItem="yH2-jc-C6K" firstAttribute="trailing" secondItem="fwc-iO-aJ2" secondAttribute="trailing" constant="20" id="iCJ-ZS-f6c"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="zNY-MF-mXy">
-                        <barButtonItem key="leftBarButtonItem" title="back" image="chevron.backward.circle.fill" catalog="system" id="vN1-qL-a17">
-                            <connections>
-                                <action selector="backButton:" destination="nlo-EN-DwL" id="2OB-Wh-MeG"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="bze-Dq-PCW"/>
                     <connections>
-                        <outlet property="biographyLabel" destination="SXT-3F-35N" id="U4Y-Rp-XCX"/>
+                        <outlet property="biographyLabel" destination="fwc-iO-aJ2" id="rZS-8D-LvW"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kO5-Bj-ziR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g7o-qt-1a7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2436" y="789"/>
+            <point key="canvasLocation" x="3391" y="788"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0mC-rq-PYJ">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iDv-eP-387" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="iDv-eP-387" customClass="TabBarController" customModule="AboutMeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="f1k-Lt-01o">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
@@ -380,16 +344,37 @@
                     </tabBar>
                     <connections>
                         <segue destination="OqY-a6-yTL" kind="relationship" relationship="viewControllers" id="go5-ZI-oF5"/>
-                        <segue destination="5G8-MH-Tmh" kind="relationship" relationship="viewControllers" id="Ngx-7S-7cS"/>
+                        <segue destination="GeC-gA-Yql" kind="relationship" relationship="viewControllers" id="Ngx-7S-7cS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oSo-yW-1Gh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="765.60000000000002" y="-28.335832083958024"/>
         </scene>
+        <!--Person-->
+        <scene sceneID="HXn-i5-YfN">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GeC-gA-Yql" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Person" image="person.fill" catalog="system" id="HwH-9u-Wiy"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hMD-xe-6Km">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="5G8-MH-Tmh" kind="relationship" relationship="rootViewController" id="eMQ-yE-vlG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JHG-Oj-8bN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1453.5999999999999" y="788.45577211394311"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="chevron.backward.circle.fill" catalog="system" width="128" height="123"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="labelColor">
